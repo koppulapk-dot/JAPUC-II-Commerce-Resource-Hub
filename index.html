@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Janani Adhyayana PU College | II PU Commerce 2026-27 Student Resource Hub</title>
+<style>
+    :root {
+      /* Adhyayana-inspired dual theme: deep blue + golden orange */
+      --navy: #123C7C;
+      --navy-dark: #0B2858;
+      --blue-soft: #EAF1FF;
+      --gold: #F5A623;
+      --gold-dark: #C97900;
+      --gold-soft: #FFF4DC;
+      --bg: #F7F9FC;
+      --card: #FFFFFF;
+      --text: #1E293B;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --green: #0F766E;
+      --shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .top-strip {
+      background: var(--navy-dark);
+      color: #ffffff;
+      padding: 10px 6%;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .top-strip span {
+      opacity: 0.96;
+    }
+
+    .navbar {
+      background: #ffffff;
+      padding: 14px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: contain;
+      border: 2px solid var(--gold);
+      background: #ffffff;
+      padding: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-dark);
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(18, 60, 124, 0.96), rgba(11, 40, 88, 0.94)),
+        radial-gradient(circle at top right, rgba(245, 166, 35, 0.38), transparent 35%);
+      color: #ffffff;
+      padding: 66px 6% 74px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(245, 166, 35, 0.14);
+      right: -110px;
+      bottom: -120px;
+    }
+
+    .hero-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 34px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 7px 13px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 4.6vw, 54px);
+      line-height: 1.12;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 780px;
+      opacity: 0.94;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .btn-white {
+      background: #ffffff;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-top: 5px solid var(--gold);
+    }
+
+    .hero-card h3 {
+      color: var(--navy);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .hero-card li {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--blue-soft);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--navy-dark);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 52px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title .eyebrow {
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      color: var(--navy);
+      font-size: clamp(24px, 3.2vw, 36px);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .notice {
+      background: var(--gold-soft);
+      border-left: 6px solid var(--gold);
+      padding: 18px 20px;
+      border-radius: 16px;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 20px rgba(245, 166, 35, 0.12);
+    }
+
+    .notice strong {
+      color: var(--gold-dark);
+    }
+
+    .latest-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--gold));
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .update-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .update-item:last-child {
+      border-bottom: none;
+    }
+
+    .date-badge {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 8px 10px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      height: fit-content;
+    }
+
+
+    .static-update-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .static-update-list li {
+      position: relative;
+      padding: 13px 14px 13px 42px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #F8FAFC;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .static-update-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .update-item h4 {
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .update-item h4 a {
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .update-item h4 a:hover {
+      color: var(--gold-dark);
+    }
+
+    .update-item p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .access-box {
+      background: linear-gradient(160deg, var(--blue-soft), #ffffff);
+      border: 1px solid #C7D2FE;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-top: 5px solid var(--navy);
+    }
+
+    .access-box h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .access-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .access-table th,
+    .access-table td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .access-table th {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .access-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .resource-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .resource-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #F8FAFC;
+      font-size: 14px;
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .resource-list a:hover {
+      background: var(--gold-soft);
+      border-color: var(--gold);
+      color: var(--navy);
+      transform: translateX(3px);
+    }
+
+    .tag {
+      font-size: 12px;
+      background: var(--blue-soft);
+      color: var(--navy);
+      padding: 3px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .subject-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gold-soft);
+      color: var(--gold-dark);
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .horizontal-card {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: auto 1fr minmax(260px, 360px);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .horizontal-card .subject-icon {
+      margin-bottom: 0;
+    }
+
+    .horizontal-card p {
+      margin-bottom: 0;
+    }
+
+    .horizontal-card .resource-list {
+      margin: 0;
+    }
+
+    .latest-message-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .latest-message-card .subject-icon {
+      margin-bottom: 0;
+    }
+
+    .compact-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-card {
+      background:
+        linear-gradient(120deg, rgba(18, 60, 124, 0.96), rgba(11, 40, 88, 0.94)),
+        radial-gradient(circle at top right, rgba(245, 166, 35, 0.28), transparent 34%);
+      color: #ffffff;
+      border-radius: 24px;
+      padding: 34px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-bottom: 6px solid var(--gold);
+    }
+
+    .contact-card h2 {
+      margin-bottom: 10px;
+      font-size: clamp(24px, 3vw, 34px);
+    }
+
+    .contact-card p {
+      max-width: 760px;
+      margin: 0 auto 20px;
+      opacity: 0.94;
+    }
+
+    .footer {
+      background: var(--navy-dark);
+      color: #CBD5E1;
+      padding: 26px 6%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer strong {
+      color: #ffffff;
+    }
+
+    .footer .gold {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner,
+      .latest-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .horizontal-card {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+      }
+
+      .horizontal-card .subject-icon {
+        margin-bottom: 12px;
+      }
+
+
+      .latest-message-card {
+        grid-template-columns: 1fr;
+      }
+
+      .latest-message-card .subject-icon {
+        margin-bottom: 12px;
+      }
+
+      .compact-list {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .top-strip,
+      .navbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .brand {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 44px 5% 54px;
+      }
+
+      .card,
+      .access-box,
+      .hero-card {
+        padding: 20px;
+      }
+
+      .update-item {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-list a {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="top-strip">
+<span>Janani Adhyayana PU College | II PU Commerce 2026-27</span>
+<span>Student Resource Hub | Notes, Papers, Assignments &amp; Circulars</span>
+</header>
+<nav class="navbar">
+<a class="brand" href="#">
+<!-- Keep logo.png in the same folder as index.html -->
+<img alt="JA Logo" class="brand-logo" src="JAPU_logo.png"/>
+<span>Student Resource Hub</span>
+</a>
+<div class="nav-links">
+<a href="#latest">Latest Updates</a>
+<a href="#subjects">Subjects</a>
+<a href="#general">General Documents</a>
+<a href="#help">Help</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-inner">
+<div>
+<div class="badge"><span class="badge-dot"></span> Academic Resources 2026-27</div>
+<h1>II PU Commerce <span>Student Resource Hub</span></h1>
+<p>
+          A simple digital archive for students to access important academic documents, subject notes,
+          question papers, assignments, circulars, timetable updates, and revision material throughout the year.
+        </p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#subjects">View Subject Resources</a>
+<a class="btn btn-secondary" href="#latest">Check Latest Updates</a>
+</div>
+</div>
+<div class="hero-card">
+<h3>One Link for the Whole Year</h3>
+<p>
+          Instead of searching repeatedly inside WhatsApp messages, students can use this page
+          as a common access point for all important academic files.
+        </p>
+<ul>
+<li>Subject-wise organization</li>
+<li>Google Drive-based document access</li>
+<li>Mobile-friendly student access</li>
+<li>Useful for exam preparation</li>
+</ul>
+</div>
+</div>
+</section>
+<main>
+<section class="section" id="latest">
+<div class="container">
+<div class="notice">
+<strong>Note for Students:</strong> This page is created to avoid losing important documents inside WhatsApp messages.
+          Please use this page as the common access point for academic files shared by faculty.
+        </div>
+<div class="card latest-message-card">
+<div class="subject-icon">📌</div>
+<div>
+<h3>Latest Updates</h3>
+<p>
+              All shared documents are kept accessible through Google Drive links and will be updated under the respective sections.
+            </p>
+<ul class="static-update-list compact-list">
+<li>
+                New notes, assignments, question papers, important questions, and revision material will be available under the relevant subject sections below.
+              </li>
+<li>
+                Faculty/coordinators need to upload each document only once in the correct Google Drive subject folder.
+              </li>
+<li>
+                For circulars, timetables, announcements, and integrated test results, students can use the General Documents and Integrated Coaching Results sections.
+              </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="subjects">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">Subject Resources</div>
+<h2>Access Documents Subject-wise</h2>
+<p>Click the relevant section to access notes, question papers, important topics, assignments, and revision material.</p>
+</div>
+<div class="grid">
+<div class="card">
+<div class="subject-icon">💻</div>
+<h3>Computer Science</h3>
+<p>Programs, theory notes, lab exercises, model questions, and assignments.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1ypH7CzSTfFm3oXrqMYAn0ivh_BWcTuDP" rel="noopener noreferrer" target="_blank">Computer Science Notes <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1ynMnjzdWNDE2c9dpVY1-k_zLNYo2pN8q" rel="noopener noreferrer" target="_blank">Computer Science Important Topics <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1qgUpScTcrP6-nxUkq4vIUUVFUbKHJ4Vp" rel="noopener noreferrer" target="_blank">Computer Science Question Papers <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/13nRSRzyBL7CIDaW9DDLieCdPh72NpBnc" rel="noopener noreferrer" target="_blank">Computer Science Assignments <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">📈</div>
+<h3>Economics</h3>
+<p>Chapter-wise notes, important topics, question papers, and assignments.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1bFKq-CQB-gTFjOuK_gPqJamLsSgylQC8" rel="noopener noreferrer" target="_blank">Economics Notes <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/12qur2HAp8IApvFIu-y788WAIMfj76Y2l" rel="noopener noreferrer" target="_blank">Economics Question Papers <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1rJxovvIEF8lYXPIpmTopvvdMa08hj8RT" rel="noopener noreferrer" target="_blank">Economics Important Topics <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1HTFtlszZakLLH-jMGxFl0c34ULK0NAox" rel="noopener noreferrer" target="_blank">Economics Assignments <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">🏢</div>
+<h3>Business Studies</h3>
+<p>Chapter-wise notes, important topics, question papers, and assignments.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1SmOdtnCsjidyTFjJtrLrGjjp1-iHilEY" rel="noopener noreferrer" target="_blank">Business Studies Notes <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1WX1cEhzESXBs_3J0rfx4GKn2ZfXc6aF3" rel="noopener noreferrer" target="_blank">Business Studies Question Papers <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/15gok-r-2qwQrkH7BLvRx7NKvr7Xd2dpm" rel="noopener noreferrer" target="_blank">Business Studies Important Topics <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/14khc2oSIy5aXIhY_h_3ecxt9Lh9-RGcf" rel="noopener noreferrer" target="_blank">Business Studies Assignments <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">🧾</div>
+<h3>Accountancy</h3>
+<p>Accounting concepts, solved problems, question papers, and assignments.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1gHk82CXrgOQet-kS5cjX3Qj4kbcFpI7M" rel="noopener noreferrer" target="_blank">Accountancy Notes <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1wK5nq8DgtX1btFia1OjH-w-RX1PFFzEn" rel="noopener noreferrer" target="_blank">Accountancy Question Papers <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/15vI-Hejbpby5hM_C_E3KWTdxCSsj3KYM" rel="noopener noreferrer" target="_blank">Accountancy Important Topics <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1gHk82CXrgOQet-kS5cjX3Qj4kbcFpI7M" rel="noopener noreferrer" target="_blank">Accountancy Assignments <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">∑</div>
+<h3>Statistics</h3>
+<p>Formula sheets, solved examples, practice problems, question papers, and assignments.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1aR39lFZMaSzUCx1vlrJvJFx5W-DbCY9o" rel="noopener noreferrer" target="_blank">Statistics Notes <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1TeUhww1xvkJyMoP2lAb5NEz-4DNlJyWP" rel="noopener noreferrer" target="_blank">Statistics Question Papers <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1MVk9vaAMqBZ3ucBR1uoygTp_Ii7DJBVv" rel="noopener noreferrer" target="_blank">Statistics Important Topics <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1lnvJZqyQlg55gDrHD4Y-gN4QC46RlnzN" rel="noopener noreferrer" target="_blank">Statistics Assignments <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">📘</div>
+<h3>Languages</h3>
+<p>English and second-language notes, assignments, and practice papers.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1J9LB4RWnrdgCJCkYyPzcEvJFKbrGJ3SS" rel="noopener noreferrer" target="_blank">English Resources <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1tMbfKRZEbfX5FywoX4dVxMe-DevTyYkK" rel="noopener noreferrer" target="_blank">Kannada / Hindi / Sanskrit Resources <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1lLBx3MBPd35Wrpn4lxXY0Yh4E0Wz9X4a" rel="noopener noreferrer" target="_blank">Language Assignments <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1NXsJWj5ZcorWOLMvztzGbthBEvGiqB1r" rel="noopener noreferrer" target="_blank">Language Question Papers <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card horizontal-card">
+<div class="subject-icon">🏆</div>
+<div>
+<h3>Integrated Coaching Results</h3>
+<p>Track-wise weekly test results for CA Foundation (CPT) preparation.</p>
+</div>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1C07mTnP9lv2-3QsHS4d79HeU6ovlYSLx" rel="noopener noreferrer" target="_blank">CEBA Track: CA Foundation (CPT) <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1wJZYjyzx8FVb92xsc10RtU6iAOtfVD-K" rel="noopener noreferrer" target="_blank">SEBA Track: CA Foundation (CPT) <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="general">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">General Documents</div>
+<h2>Common Academic Resources</h2>
+<p>Class schedules, official circulars, and common announcements required by all students.</p>
+</div>
+<div class="grid">
+<div class="card">
+<div class="subject-icon">🗓</div>
+<h3>Timetables</h3>
+<p>Access class timetable and exam timetable documents shared by the college.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1QqWW_oDJcRhcatGMNDCz92fyetmpVJAR" rel="noopener noreferrer" target="_blank">Class Timetable <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1ZrnNWlq7ebR-X0LpXGhcUcg0QCuaGtCi" rel="noopener noreferrer" target="_blank">Exam Timetable <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">📢</div>
+<h3>Circulars</h3>
+<p>Access official college notices, exam-related circulars, and student instructions.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1c6mmF3fcVOPu8beEUHdJIKBOaNTlXRXP" rel="noopener noreferrer" target="_blank">General Circulars <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1rh1-9MNPWS-r9iegb9oaifj4uFCE14ct" rel="noopener noreferrer" target="_blank">Exam Circulars <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+<div class="card">
+<div class="subject-icon">🔔</div>
+<h3>Announcements</h3>
+<p>Access common announcements, reminders, and important notices shared for students.</p>
+<ul class="resource-list">
+<li><a href="https://drive.google.com/drive/u/4/folders/1zV8LN0gyuI-EnGszu7kFsMNHu0vmrm3c" rel="noopener noreferrer" target="_blank">General Announcements <span class="tag">Drive Link</span></a></li>
+<li><a href="https://drive.google.com/drive/u/4/folders/1N0IJ3gZxdF3t7koh-wDOsZp3arDKoKO-" rel="noopener noreferrer" target="_blank">Important Notices <span class="tag">Drive Link</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="help">
+<div class="container">
+<div class="contact-card">
+<h2>Need Help Finding a Document?</h2>
+<p>
+            If any document is missing or not opening, please contact the class coordinator or faculty-in-charge.
+            This page supports the WhatsApp group by keeping important files organized in one place.
+          </p>
+<a class="btn btn-primary">Contact Faculty / Coordinator</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p><strong>Janani Adhyayana PU College</strong> | <span class="gold">II PU Commerce 2026-27 Student Resource Hub</span></p>
+<p>Digital Archive</p>
+</footer>
+</body>
+</html>
